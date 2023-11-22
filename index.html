@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Message</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f0e4d7; /* 选择一个浪漫的背景颜色 */
+            position: relative;
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* 卡通风格的字体 */
+        }
+
+        .love-message {
+            position: absolute;
+            color: #ff69b4; /* 选择一个鲜艳的文字颜色 */
+            font-size: 2em;
+            white-space: nowrap;
+            opacity: 0.8;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* 卡通风格的动画元素 */
+        .cartoon-element {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 50px; /* 根据实际图片大小调整 */
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://example.com/romantic-music.mp3" type="audio/mpeg"> <!-- 替换为您的音乐链接 -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <img src="https://example.com/cartoon-element.png" alt="Cartoon Element" class="cartoon-element"> <!-- 替换为卡通元素的图片链接 -->
+
+    <script>
+        function createMessage() {
+            var message = document.createElement('div');
+            message.classList.add('love-message');
+            message.innerHTML = '<span>💖</span> 潘烨我爱你 <span>🌹</span>';
+            message.style.top = Math.random() * window.innerHeight + 'px';
+            message.style.animationDuration = 10 + Math.random() * 5 + 's'; /* 调整为适中的弹幕速度 */
+            message.style.animationName = 'slide';
+            message.style.animationTimingFunction = 'linear';
+            message.style.animationIterationCount = 'infinite';
+            document.body.appendChild(message);
+        }
+
+        setInterval(createMessage, 2000); // 每2秒添加一个新的弹幕消息
+    </script>
+</body>
+</html>
